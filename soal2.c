@@ -3,7 +3,7 @@
 *   Hari dan Tanggal    : Rabu, 15 April 2026
 *   Nama (NIM)          : Fayyadh Ramadhan (13224077)
 *   Nama File           : soal2.c
-*   Deskripsi           : 
+*   Deskripsi           : Mencari jumlah langkah tranformasi yang diperlukan hingga menjadi 1, dengan menggunakan rekursi.
 * 
 */
 
@@ -25,7 +25,7 @@ void transformasiLangkah(int T, int counter, int *n, int langkah)
 {
     if((n[counter] % 2) == 0)
     {
-        n[counter] = (n[counter]) * 2;
+        n[counter] = (n[counter]) / 2;
     }
     else
     {
@@ -34,16 +34,16 @@ void transformasiLangkah(int T, int counter, int *n, int langkah)
 
     if(n[counter] == 1)
     {
-        printf("LANGKAH %d\n", langkah);
+        printf("LANGKAH %d\n", langkah+1);
         return;
     }
     // else
     // {
-    //     printf("hadi");
+    //     printf("Why Tho?\n");
     //     return;
     // }
 
-    transformasiLangkah(T, counter, &n[50], langkah+1);
+    transformasiLangkah(T, counter, n, langkah+1);
 }
 
 void hitungLangkah(int T, int start, int *n)
@@ -52,6 +52,8 @@ void hitungLangkah(int T, int start, int *n)
     {
         return;
     }
+
+    // printf("%d", n[0])
 
     transformasiLangkah(T, start, n, 0);
 
